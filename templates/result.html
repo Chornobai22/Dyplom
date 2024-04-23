@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cтартовий склад на гру</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+    <h2 align="center">Cтартовий склад на гру:</h2>
+
+    <h3 align="center">Голкіпер:</h3>
+    <p align="center">{{ best_goalkeeper[0] }}</p>
+
+    <h3 align="center">Центарльні захисники:</h3>
+    {% for player in best_defender %}
+    <p align="center">{{ player }}</p>
+    {% endfor %}
+
+    <h3 align="center">Крайні захисники::</h3>
+    {% for player in best_fullback %}
+    <p align="center">{{ player }}</p>
+    {% endfor %}
+
+    <h3 align="center">Центральні півзахисники:</h3>
+    {% for player in best_midfielder %}
+    <p align="center">{{ player }}</p>
+    {% endfor %}
+
+    <h3 align="center">Вінгери:</h3>
+    {% for player in best_winger %}
+    <p align="center">{{ player }}</p>
+    {% endfor %}
+
+    <h3 align="center">Форвард:</h3>
+    {% for player in best_forward %}
+    <p align="center">{{ player }}</p>
+    {% endfor %}
+<form action="http://127.0.0.1:5000/">
+    <input type="submit" class="button-9" value="Завантажити дані знову" />
+</form>
+</body>
+</html>

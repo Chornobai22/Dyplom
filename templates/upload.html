@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='upload.css') }}">
+</head>
+<body>
+    <h2 align="center">Завантажте дані для прогнозування</h2>
+    <br><br><br>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="file-input">
+            <div class="row">
+                <div class="column">
+                    <h3>Воротарі:</h3>
+                    <input type="file" name="goalkeeper_dataset">
+                </div>
+                <div class="column">
+                    <h3>Центральні захисники:</h3>
+                    <input type="file" name="defender_dataset">
+                </div>
+                <div class="column">
+                    <h3>Крайні захисники:</h3>
+                    <input type="file" name="fullback_dataset">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <h3>Півзахисники:</h3>
+                    <input type="file" name="midfielder_dataset">
+                </div>
+                <div class="column">
+                    <h3>Вінгери:</h3>
+                    <input type="file" name="winger_dataset">
+                </div>
+                <div class="column">
+                    <h3>Форварди:</h3>
+                    <input type="file" name="forward_dataset">
+                </div>
+            </div>
+        </div>
+
+            <label for="tactics" id="choose">Схема гри:</label>
+        <div class="select">
+            <select name="tactics" id="tactics">
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-4-2">4-4-2</option>
+                <option value="5-3-2">5-3-2</option>
+            </select>
+        </div>
+        <input type="submit" value="Обрати стартовий склад">
+    </form>
+</body>
+</html>
