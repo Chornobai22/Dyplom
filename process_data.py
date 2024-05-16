@@ -1,15 +1,5 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
 import ast
-import keras
 
 
 def process_data_GK(file):
@@ -34,7 +24,6 @@ def process_data_GK(file):
     target = new_GK['Total Stats'].values
     player_names = new_GK['Name'].values
     return features, target, player_names
-
 
 
 def process_data_DC(file):
@@ -121,7 +110,6 @@ def process_data_MD(file):
             new_row[attribute_name] = value
         new_MD = pd.concat([new_MD, pd.DataFrame([new_row])])
 
-
     attribute_names = ['Tackles', 'Interceptions', 'npxG + xAG', 'Shot-Creating Actions', 'Passes Attempted',
                        'Pass Completion %', 'Progressive Passes', 'Progressive Carries',
                        'Successful Take-Ons']
@@ -192,9 +180,8 @@ def process_data_FW(file):
             new_row[attribute_name] = value
         new_FW = pd.concat([new_FW, pd.DataFrame([new_row])])
 
-
     attribute_names = ['Non-Penalty Goals', 'Non-Penalty xG', 'Shots Total', 'Assists', 'xAG', 'npxG + xAG',
-                   'Shot-Creating Actions']
+                       'Shot-Creating Actions']
     new_FW = new_FW.drop_duplicates(subset=['Name'])
     new_FW['Total Stats'] = new_FW[attribute_names].sum(axis=1)
 
@@ -204,4 +191,3 @@ def process_data_FW(file):
     target = new_FW['Total Stats'].values
     player_names = new_FW['Name'].values
     return features, target, player_names
-

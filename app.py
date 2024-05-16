@@ -1,9 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import torch
-import torch.nn as nn
-import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 from func import load_model, load_scaler, create_model
 from process_data import (process_data_GK, process_data_DC, process_data_FB,
                           process_data_MD, process_data_WG, process_data_FW)
